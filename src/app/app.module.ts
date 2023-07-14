@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // loading the script tag of the initial component
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.modules';
 
 // decorator
 @NgModule({
@@ -19,7 +20,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CustomersModule
+    CustomersModule,
+    SharedModule
   ],
   providers: [],
   // below it declares the first one that will display in the UI, the startup component

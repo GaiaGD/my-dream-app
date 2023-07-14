@@ -9,12 +9,15 @@ import { AppRoutingModule } from '../app-routing.module';
 import { CustomersComponent } from './customers.component';
 //loading child components
 import { CustomersListComponent } from './customers-list/customers-list.component';
+import { FilterTextboxComponent } from './customers-list/filter-textbox.component';
+
 
 // decorator
 @NgModule({
   declarations: [
     CustomersComponent,
-    CustomersListComponent
+    FilterTextboxComponent,
+    CustomersListComponent,
   ],
   imports: [
     CommonModule,
