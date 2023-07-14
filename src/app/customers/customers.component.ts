@@ -10,6 +10,10 @@ export class CustomersComponent implements OnInit {
     title: string = '';
     // now anything I add to people, has to match the rules of the interfaces
     people: ICustomer[] = []
+    isVisible: boolean = true;
+    changevisibility(){
+        this.isVisible = !this.isVisible
+    }
     
 
     constructor () {
