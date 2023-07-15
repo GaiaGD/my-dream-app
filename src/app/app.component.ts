@@ -4,9 +4,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   // this below is the html we'll manipulate
-  templateUrl: './app.component.html',
+  template:`
+  <router-outlet></router-outlet>
+`,
   styleUrls: ['./app.component.css']
 })
+
 
 // some rules I gave to follow
 export class AppComponent implements OnInit {

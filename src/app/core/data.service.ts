@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 // rxjs helps with async
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, filter, catchError } from 'rxjs/operators';
 
 import { ICustomer, IOrder } from '../../app/shared/interfaces';
 
@@ -28,24 +28,28 @@ export class DataService {
     // it's similar to a promise
     getCustomers() : Observable<ICustomer[]> {
         return this.http.get<ICustomer[]>(this.baseUrl+'customers.json')
+        return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json')
             .pipe(
                 // handle error function is at the bottom
                 catchError(this.handleError)
+
             )
     }
         
-    getCustomer(id: number) : Observable<ICustomer> {
+    getCustomer(id: number): Observable<ICustomer> {
         return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json')
-          .pipe(
-            // maps through the array and finds the matching onw through the id
-            map(customers => {
-                const customer = customers.find((cust: ICustomer) => cust.id === id);
-                return customer ? customer : null;
-              }),
-              catchError(this.handleError),
-              map(customer => customer ? customer : null)
-            )
-    }
+        .pipe(
+          map(customers => {
+            const customer = customers.find((cust: ICustomer) => cust.id === id);
+            if (customer) {
+              return customer;
+            } else {
+              throw new Error('Customer not found');
+            }
+          }),
+          catchError(this.handleError)
+        );
+      }
   
       getOrders(id: number) : Observable<IOrder[]> {
         return this.http.get<IOrder[]>(this.baseUrl + 'orders.json')

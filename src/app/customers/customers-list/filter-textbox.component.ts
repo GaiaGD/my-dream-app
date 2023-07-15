@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { SorterService } from "src/app/core/sorter.service";
 
 @Component ({
    selector: 'app-filter-textbox',
@@ -27,7 +28,7 @@ export class FilterTextboxComponent implements OnInit {
     // EventEmitter is the way to send back data to the parent - in this case a string
     @Output() changed: EventEmitter<string> = new EventEmitter<string>()
 
-    constructor () {
+    constructor (private sorterService: SorterService) {
     }
 
     ngOnInit(): void {

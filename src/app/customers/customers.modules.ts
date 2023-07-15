@@ -17,7 +17,7 @@ import { CustomersComponent } from './customers.component';
 //loading child components
 import { CustomersListComponent } from './customers-list/customers-list.component';
 import { FilterTextboxComponent } from './customers-list/filter-textbox.component';
-
+import { CustomersRoutingModule } from './customers-routing.model'
 
 // decorator
 @NgModule({
@@ -30,7 +30,8 @@ import { FilterTextboxComponent } from './customers-list/filter-textbox.componen
     CommonModule,
     AppRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    CustomersRoutingModule
   ],
   exports: [ CustomersComponent ],
   providers: [],
