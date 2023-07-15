@@ -1,5 +1,8 @@
 // below, decorator: gives metadata
 import { NgModule } from '@angular/core';
+
+import { CapitalizePipe } from './capitalize.pipe';
+
 // below, directives - CRITICAL
 import { CommonModule } from '@angular/common';
 
@@ -10,9 +13,10 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 // decorator
 @NgModule({
-  declarations: [ ],
+  declarations: [ CapitalizePipe ],
   imports: [ ],
-  exports: [ ],
+  // exporting it, it's accessible to the whole app
+  exports: [ CapitalizePipe ],
   providers: [],
 
 })
