@@ -22,5 +22,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // this.title = "title"
+    console.log('********************************AppComponent ngOnInit called');
+
   }
 }

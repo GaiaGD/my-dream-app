@@ -57,6 +57,7 @@ export class DataService {
             // maps through the array and finds the matching onw through the id
             map(orders => {
               let custOrders = orders.filter((order: IOrder) => order.customerId === id);
+              console.log('hi')
               return custOrders;
             }),
             catchError(this.handleError)

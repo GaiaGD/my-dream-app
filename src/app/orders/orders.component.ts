@@ -13,15 +13,20 @@ export class OrdersComponent implements OnInit {
     
     orders: IOrder[] = [];
     customer!: ICustomer;
+    currencyCode: string = 'USD'
 
     // that's how we can use the data http fetch created in the service, "registered" all the way up in the app module and now injected in the constructor
     constructor (private dataService: DataService,
         private route: ActivatedRoute) {
+        console.log('********************************OrdersComponent constructor called');
+
     }
 
     ngOnInit(): void {
 
-        let id = +this.route.snapshot.paramMap.get('id')
+        let id = +this.route.snapshot.paramMap.get('id')! || 0;
+        console.log(id)
+
         if (id !== null) {
             const numericId = +id;
             this.dataService.getOrders(numericId).subscribe((orders: IOrder[]) => {

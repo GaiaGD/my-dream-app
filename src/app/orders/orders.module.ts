@@ -12,6 +12,7 @@ import { AppRoutingModule } from '../app-routing.module';
 
 // loading the script tag of the matching component
 import { OrdersComponent } from './orders.component'
+import { OrdersRoutingModule } from './orders-routing.modules';
 //loading child components
 
 
@@ -21,10 +22,14 @@ import { OrdersComponent } from './orders.component'
     OrdersComponent
   ],
   imports: [
+    CommonModule,
     AppRoutingModule,
-
+    SharedModule,
+    OrdersRoutingModule
   ],
-  exports: [ OrdersComponent ],
+  exports: [
+    OrdersComponent,
+  ],
   providers: [],
 
 })
